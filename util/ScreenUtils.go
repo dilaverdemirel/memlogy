@@ -1,0 +1,14 @@
+package util
+
+import (
+	"fmt"
+	"os"
+)
+
+func ClearScreen() {
+	os.Stdout.Write([]byte{0x1B, 0x5B, 0x33, 0x3B, 0x4A, 0x1B, 0x5B, 0x48, 0x1B, 0x5B, 0x32, 0x4A})
+}
+
+func ClearCurrentLine() {
+	fmt.Print("\n\033[1A\033[K")
+}
