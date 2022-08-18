@@ -74,10 +74,11 @@ func init() {
 
 func load(day time.Time, entryRepository database.SQLiteRepository) [][]string {
 	util.ClearScreen()
-	fmt.Println("------------------------------------------------------")
-	fmt.Println("                    Selected Day")
-	fmt.Println("                    " + day.Format("2 Jan 2006"))
-	fmt.Println("------------------------------------------------------")
+	printBanner()
+	fmt.Println("-------------------------------------------------------------------")
+	fmt.Println("                             Selected Day")
+	fmt.Println("                             " + day.Format("2 Jan 2006"))
+	fmt.Println("-------------------------------------------------------------------")
 
 	fmt.Println("")
 
@@ -171,4 +172,16 @@ func handleEditing(
 	}
 
 	return editing
+}
+
+func printBanner() {
+	fmt.Println("-------------------------------------------------------------------")
+	fmt.Println(`  
+	 __  __                _                   
+	|  \/  | ___ _ __ ___ | | ___   __ _ _   _ 
+	| |\/| |/ _ \ '_  _ \| |/ _ \ / _ | | | |
+	| |  | |  __/ | | | | | | (_) | (_| | |_| |
+	|_|  |_|\___|_| |_| |_|_|\___/ \__, |\__, |
+					|___/ |___/ 
+								   `)
 }
