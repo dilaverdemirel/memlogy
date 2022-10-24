@@ -2,6 +2,9 @@ package database
 
 import (
 	"database/sql"
+	"path"
+
+	"runtime"
 
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -11,7 +14,8 @@ var db *sql.DB
 func OpenDatabase() error {
 	var err error
 
-	db, err = sql.Open("sqlite3", "./sqlite-database.db")
+	_, filename, _, _ := runtime.Caller(1)
+	db, err = sql.Open("sqlite3", path.Dir(filename)+"/sqlite-database.db")
 	if err != nil {
 		return err
 	}
