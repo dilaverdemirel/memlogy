@@ -19,6 +19,10 @@ I tried something for learning golang. It contatains;
 memlogy add Write something about you
 memlogy add --description "Write something about you"
 memlogy add -d "Write something about you"
+
+#Adds entry to yesterday
+memlogy add --go-to-day=-1 --description="Write something about you" #For yesterday with --go-to-day flag
+memlogy add -g=-1 -d="Write something about you" #For yesterday with -g flag
 ```
 
 ### List notes :
