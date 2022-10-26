@@ -81,7 +81,7 @@ func (r *SQLiteRepository) GetById(id string) (*Entry, error) {
 func (r *SQLiteRepository) GetByDay(day time.Time) ([]Entry, error) {
 	startOfDay := time.Date(day.Year(), day.Month(), day.Day(), 0, 0, 0, 0, day.Location())
 	endOfDay := time.Date(day.Year(), day.Month(), day.Day(), 23, 59, 59, 0, day.Location())
-	rows, err := r.db.Query("SELECT * FROM entry WHERE log_time >= ? and log_time <= ? order by log_time", startOfDay, endOfDay)
+	rows, err := r.db.Query("SELECT * FROM entry WHERE log_time >= ? and log_time <= ? order by id", startOfDay, endOfDay)
 
 	if err != nil {
 		return nil, err
